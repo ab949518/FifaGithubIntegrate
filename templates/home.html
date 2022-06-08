@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>FIFA home page</title>
+  </head>
+  <body>
+    <h1>Predict Player's Rating</h1>
+    <h3> Enter the following values to predict the player's rating</h3>
+    <div class="container">
+      <form action="{{url_for('results')}}" method = "post">
+          <input type = "text" name="movement_reactions" placeholder="Movement Reactions" required="required"/>
+          <input type = "text" name="mentality_composure" placeholder="Mentality - Composure" required="required"/>
+          <input type = "text" name="power_shot_power" placeholder="Shot Power" required="required"/>
+          <input type = "text" name="mentality_vision" placeholder="Mentality - Vision" required="required"/>
+          <input type = "text" name="attacking_short_passing" placeholder="Attacking - Short Passing" required="required"/>
+          <input type = "text" name="skill_long_passing" placeholder="Skill - Long Passing" required="required"/>
+
+          <button type="submit" class="btn"> PREDICT RATING</button>
+      </form>
+    </div>
+  </body>
+</html>

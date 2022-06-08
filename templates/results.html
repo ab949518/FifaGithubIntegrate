@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>FIFA Results page</title>
+  </head>
+  <body>
+    <h1>Predicted Player's Rating</h1>
+    <div class="container">
+      The players rating is {{prediction_text}}
+    </div>
+    <h3>The RMSE (Root Mean Square Value) of this model is 3.1863027.</h3>
+    <h3>The below image shows the distribution of every players' score for each attribute.</h3>
+    <img src="static/allAttributes.jpg" alt="histogram of all attributes"/>
+    <h3>The below image shows the distribution of the overall rating for all players.</h3>
+    <img src="static/overall.jpg" alt="distribution of overall scores"/>
+    <h3>The model takes into account for a players movement reactions, composure, vision, shot power, 
+        short passing, and long passing ability. The below image shows how each of these attributes 
+        correlates with another attribute as well as the player's overall rating.</h3>
+    <img src="static/selectedAttributes.jpg" alt="histogram of selected attributes"/>
+  </body>
+</html>
