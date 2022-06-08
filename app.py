@@ -38,5 +38,6 @@ def results():
     return render_template('results.html', prediction_text='Estimated Player Rating :{}'.format(end_rating))
 
 if __name__ == '__main__':
-    port = os.environ.get("PORT", 5000)
-    app.run(debug=False, host="0.0.0.0", port=port)
+    #port = os.environ.get("PORT", 5000)
+    #app.run(debug=False, host="0.0.0.0", port=port)
+    app.run(debug=False)
