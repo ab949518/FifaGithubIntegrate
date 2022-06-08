@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, url_for, request
 #import libraries
 import numpy as np
 import pickle
+import os
 #Initialize the flask App
 app = Flask(__name__)
 model = pickle.load(open('final_model.pkl', 'rb'))
@@ -37,4 +38,5 @@ def results():
     return render_template('results.html', prediction_text='Estimated Player Rating :{}'.format(end_rating))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = os.environ.get("PORT", 5000)
+    app.run(debug=False, host="0.0.0.0", port=port)
