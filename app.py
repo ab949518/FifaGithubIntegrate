@@ -1,13 +1,14 @@
-from flask import Flask, render_template, redirect, url_for, request
-
 #import libraries
+from flask import Flask, render_template, redirect, url_for, request
 import numpy as np
 import pickle
 import os
 #Initialize the flask App
 app = Flask(__name__)
+#load model
 model = pickle.load(open('final_model.pkl', 'rb'))
 
+#login page. Username/password is "admin"
 @app.route('/', methods=['GET', 'POST'])
 def login():
     error = None
@@ -18,17 +19,19 @@ def login():
             return redirect(url_for('home'))
     return render_template('login.html', error=error)
 
+#home page where user enters attribute ratings
 @app.route('/home')
 def home():
     return render_template('home.html')
 
-
+#obtaining predicted overall player rating from model
 def PredictRating(to_predict_list):
     to_predict = np.array(to_predict_list)
     load_model = pickle.load(open("final_model.pkl", "rb"))
     final_result = load_model.predict(to_predict)
     return final_result
 
+#results page, displays graphs, results, and model accuracy evaluation
 @app.route('/results', methods = ['GET', 'POST'])
 def results():
     #For rendering results on HTML GUI
